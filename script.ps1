@@ -1,4 +1,4 @@
-﻿# Applications I never asked for
+﻿# Applications I never asked for...
 Function Applications {
 
 # Applications to remove via Winget
@@ -28,10 +28,10 @@ foreach ($wr in $WingetRemove) {
 
 }
 
+# HKCU hive entries, maybe this will be a JSON, XML, or CSV at some point...
 Function Registry {
 
 # Taskbar alignment left... it's always been left
-$taskbarAl = 0000000
 New-ItemProperty `
     -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" `
     -Name "TaskbarAl" `
@@ -54,12 +54,15 @@ New-ItemProperty `
     -Value "0" `
     -PropertyType "DWORD" `
     -Force
+
 }
 
+# Good ol' LGPO. Wait, can I distribute this on GitHub?! We'll roll with it for now...
 Function GroupPolicy {
     .\LGPO.exe /g .\gpo
 }
 
+# Run the functions
 Applications
 Registry
 GroupPolicy
