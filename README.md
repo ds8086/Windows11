@@ -30,4 +30,4 @@ Group policies configured with the understanding that...
 
  # Log
 - **2025.02.09:** Day 1 of trying to make Windows 11 usable.
-- **2025.02.12:** More GPOs controlling unwanted online services.
+- **2025.02.12:** More policies controlling unwanted online services.

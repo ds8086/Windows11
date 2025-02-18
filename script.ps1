@@ -12,7 +12,8 @@ $WingetRemove = @(
     'Power Automate',
     'Microsoft Bing Search',
     'Microsoft News',
-    'Outlook for Windows'
+    'Outlook for Windows',
+    'Windows Notepad' # AI in my Notepad? Not today!
 )
 
 # Winget source agreements
