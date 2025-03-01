@@ -31,36 +31,21 @@ foreach ($wr in $WingetRemove) {
 
 }
 
-# Registry entries, settings will be grouped into .reg files at some point...
+# Registry entries grouped into .reg files...
 Function Registry {
 
-# Taskbar alignment left... it's always been left
-New-ItemProperty `
-    -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" `
-    -Name "TaskbarAl" `
-    -Value "0" `
-    -PropertyType "DWORD" `
-    -Force
+# Registry files
+$RegFiles = Get-ChildItem -Path ".\reg\*.reg"
 
-# Disable transparency
-New-ItemProperty `
-    -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" `
-    -Name "EnableTransparency" `
-    -Value "0" `
-    -PropertyType "DWORD" `
-    -Force
+# Import registry files
+$i = 0
+Foreach ($rf in $RegFiles) {
+    $i++
+    Write-Progress "Importing registry entries from $($rf.Name)" -PercentComplete ($i / $RegFiles.Count * 100)
 
-# Disable animations
-New-ItemProperty `
-    -Path "HKCU:\Control Panel\Desktop" `
-    -Name "AnimationDuration" `
-    -Value "0" `
-    -PropertyType "DWORD" `
-    -Force
+    regedit /s $rf.FullName
+}
 
-# Restore Photo Viewer
-# https://www.tenforums.com/tutorials/14312-restore-windows-photo-viewer-windows-10-a.html
-regedit /s ".\Restore_Windows_Photo_Viewer_ALL_USERS.reg"
 }
 
 # Good ol' LGPO. Wait, can I distribute this on GitHub?! We'll roll with it for now...

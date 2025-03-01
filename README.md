@@ -12,7 +12,7 @@ You thought Vista was bad?! Buckle up buttercup, you've never been *less* in con
 > If you receive errors regarding execution policy run `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process` then the script!
 
 ## Applications
-Currently a short list of unwanted applications removed via winget. AppX package logic coming soon...
+Currently a short list of unwanted applications removed via winget.
 
 ## Registry
 Explorer, tasksbar, and themes settings. A mix of personal preferences and attempts to increase UI responsiveness.
@@ -33,3 +33,4 @@ Group policies configured with the understanding that...
 - **2025.02.12:** More policies controlling unwanted online services.
 - **2025.02.18:** Removed 'Windows Notepad' after finding AI "features".
 - **2025.02.20:** Removed 'Sticky Notes' and 'Photos'. Reg entries for old school photo viewer.
+- **2025.03.01:** Updated registry entry function and reg file organization.
