@@ -9,7 +9,7 @@ You thought Vista was bad?! Buckle up buttercup, you've never been *less* in con
 `.\script.ps1`
 
 > [!WARNING]
-> If you receive errors regarding execution policy run the line below, then the script!
+> If you receive errors regarding execution policy run the line below, then the script! <br>
 > `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process`
 
 ## Applications
