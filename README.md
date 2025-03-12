@@ -35,3 +35,4 @@ Group policies configured with the understanding that...
 - **2025.02.18:** Removed 'Windows Notepad' after finding AI "features".
 - **2025.02.20:** Removed 'Sticky Notes' and 'Photos'. Reg entries for old school photo viewer.
 - **2025.03.01:** Updated registry entry function and reg file organization.
+- **2025.03.12:** Modified Windows Update policies following 2nd unexpected install & reboot.
