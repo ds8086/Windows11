@@ -5,6 +5,8 @@ Function Applications {
 $WingetRemove = @(
     'Copilot',
     'Dev Home',
+    'Game Bar',
+    'Game Speech Window',
     'Microsoft Bing Search',
     'Microsoft News',
     'Microsoft Photos', # How about a photo viewer without online integrations?
@@ -15,7 +17,12 @@ $WingetRemove = @(
     'Outlook for Windows',
     'Power Automate',
     'Quick Assist',
-    'Windows Notepad' # AI in my Notepad? Not today!
+    'Windows Notepad', # AI in my Notepad? Not today!
+    'Xbox',  # One too many pop-ups for 'Rewards'.
+    'Xbox TCUI',
+    'Xbox Console Companion',
+    'Xbox Game Bar Plugin',
+    'Xbox Identity Provider'
 )
 
 # Winget source agreements
