@@ -37,3 +37,4 @@ Group policies configured with the understanding that...
 - **2025.03.01:** Updated registry entry function and reg file organization.
 - **2025.03.12:** Modified Windows Update policies following 2nd unexpected install & reboot.
 - **2025.03.17:** Modified Windows Update policies after compare with JS.
+- **2025.07.18:** Removed XBox bloatware. Added reg entry for 'old' right-click context menu.
