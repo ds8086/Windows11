@@ -21,7 +21,6 @@ Explorer, tasksbar, and themes settings. A mix of personal preferences and attem
 ## GPO
 Group policies configured with the understanding that...
 - I never asked Windows to connect to the **cloud** or anything **online** unless *I* tell it to.
-- I will not connect Windows to my **consummer** Microsoft account.
 - I do not want **Cortana** nor **Search** connected to the internet.
 - I do not use **OneDrive**.
 - I will not beta test patches via Windows **update**.
@@ -38,3 +37,4 @@ Group policies configured with the understanding that...
 - **2025.03.12:** Modified Windows Update policies following 2nd unexpected install & reboot.
 - **2025.03.17:** Modified Windows Update policies after compare with JS.
 - **2025.07.18:** Removed XBox bloatware. Added reg entry for 'old' right-click context menu.
+- **2025.07.21:** Reallowed consumer accounts for apps (Minecraft). Disabled AI (recall). Removed reg for old school photo viewer.
