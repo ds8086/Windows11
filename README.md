@@ -6,7 +6,7 @@ You thought Vista was bad?! Buckle up buttercup, you've never been *less* in con
 2. Launch an administrative PowerShell session, navigate to the downloaded repo directory.
 3. Run the PowerShell script via the *dot-slash filename* syntax below.
 
-`.\script.ps1`
+`.\Optimize-Windows11.ps1`
 
 > [!WARNING]
 > If you receive errors regarding execution policy run the line below, then the script! <br>
@@ -14,6 +14,32 @@ You thought Vista was bad?! Buckle up buttercup, you've never been *less* in con
 
 ## Applications
 Currently a short list of unwanted applications removed via winget.
+
+- Copilot
+- Dev Home
+- Game Bar
+- Game Speech Window
+- Microsoft Bing Search
+- Microsoft News
+- Microsoft Photos
+- Microsoft Sticky Notes
+- Microsoft To Do
+- Microsoft.Teams
+- OneDrive
+- Outlook for Windows
+- Power Automate
+- Quick Assist
+- Windows Notepad
+- Xbox
+- Xbox Console Companion
+- Xbox Game Bar Plugin
+- Xbox Identity Provider
+- Xbox TCUI
+
+> [!IMPORTANT]
+> If you use the Xbox & Game Bar/Speech features, run script with the `-GameOn` switch.
+
+`.\Optimize-Windows11.ps1 -GameOn`
 
 ## Registry
 Explorer, tasksbar, and themes settings. A mix of personal preferences and attempts to increase UI responsiveness.
@@ -38,3 +64,4 @@ Group policies configured with the understanding that...
 - **2025.03.17:** Modified Windows Update policies after compare with JS.
 - **2025.07.18:** Removed XBox bloatware. Added reg entry for 'old' right-click context menu.
 - **2025.07.21:** Reallowed consumer accounts for apps (Minecraft). Disabled AI (recall). Removed reg for old school photo viewer.
+- **2025.07.23:** Further HKCU reg entries. Updated script name and readme. Added script help.
