@@ -17,6 +17,7 @@ Currently a short list of unwanted applications removed via winget.
 
 - Copilot
 - Dev Home
+- Feedback Hub
 - Game Bar
 - Game Speech Window
 - Microsoft Bing Search
