@@ -9,13 +9,20 @@ Optimizes Windows 11.
 Author:
     DS
 Notes:
-    Revision 03
+    Revision 04
 Revision:
     V01: 2025.02.09 by DS :: First revision.
     V02: 2025.07.18 by DS :: Initial removal of Xbox & gaming apps.
     V03: 2025.07.23 by DS :: Added logic for optionally keeping Xbox & gaming apps. Added this helpful header.
+    V04: 2025.07.28 by DS :: Expanded logic for optionally keeping gaming registry entries. Added 'Skip' parameter and logic.
 Call From:
     PowerShell v5.1 or higher
+
+.PARAMETER GameOn
+Switched parameter which, when specified, will leave Xbox and gaming "features" in place and will not add registry entries to disable game recording and capture.
+
+.PARAMETER Skip
+Specify this parameter along with any combination of 'Applications', 'Registry', and/or 'GroupPolicy' to skip processing the steps(s).
 
 .EXAMPLE
 .\Optimize-Windows11.ps1
@@ -24,12 +31,24 @@ Optimizes Windows 11.
 .EXAMPLE
 .\Optimize-Windows11.ps1 -GameOn
 Optimizes Windows 11 as much as possible while leaving Xbox and Gaming applications installed.
+
+.EXAMPLE
+.\Optimize-Windows11.ps1 -Skip GroupPolicy
+Optimizes Windows 11 but skips applying group policy objects.
+
+.EXAMPLE
+.\Optimize-Windows11.ps1 -Skip GroupPolicy, Registry
+Optimizes Windows 11 but skips applying group policy objects and adding registry entries.
 #>
 
 [CmdletBinding()]
 param (
     [Parameter(Mandatory=$false)]
-    [switch]$GameOn = $false
+    [switch]$GameOn = $false,
+    
+    [Parameter(Mandatory=$false)]
+    [ValidateSet("Applications", "Registry", "GroupPolicy")]
+    [string[]]$Skip
 )
 
 # Applications I never asked for...
@@ -39,6 +58,7 @@ Function Applications {
 $WingetRemove = @(
     'Copilot',
     'Dev Home',
+    'Feedback Hub',
     'Microsoft Bing Search',
     'Microsoft News',
     'Microsoft Photos', # How about a photo viewer without online integrations?
@@ -57,6 +77,7 @@ If ($GameOn -eq $False) {
     $WingetRemove += @(
         'Game Bar',
         'Game Speech Window',
+        'Microsoft Edge Game Assist',
         'Xbox',
         'Xbox TCUI',
         'Xbox Console Companion',
@@ -83,6 +104,9 @@ Function Registry {
 
 # Registry files
 $RegFiles = Get-ChildItem -Path ".\reg\*.reg"
+If ($GameOn -eq $False) {
+    $RegFiles += Get-ChildItem -Path ".\reg\gaming\*.reg"
+}
 
 # Import registry files
 $i = 0
@@ -101,6 +125,13 @@ Function GroupPolicy {
 }
 
 # Run the functions
-Applications
-Registry
-GroupPolicy
+$Functions = "Applications","Registry","GroupPolicy"
+$Functions | ForEach-Object {
+    If ($Skip -notcontains $_) {
+        Write-Verbose "Processing $_"
+        & $_
+    }
+    Else {
+        Write-Verbose "Skipping $_"
+    }
+}

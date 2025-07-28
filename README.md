@@ -65,3 +65,4 @@ Group policies configured with the understanding that...
 - **2025.07.18:** Removed XBox bloatware. Added reg entry for 'old' right-click context menu.
 - **2025.07.21:** Reallowed consumer account (Minecraft). Disabled AI (recall). Removed reg for photo viewer.
 - **2025.07.23:** Further HKCU reg entries. Updated script name and readme. Added script help.
+- **2025.07.28:** Folders added to explorer. "Recommended" removed from Start. Logic for skipping steps.
